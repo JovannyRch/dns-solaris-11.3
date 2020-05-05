@@ -1,0 +1,7 @@
+sudo cp /vagrant/named.conf /etc/
+sudo cp /vagrant/forward.midominio /var/named/
+sudo named-checkconf /etc/named.conf
+sudo named-checkzone midominio /var/named/forward.midominio
+sudo svcadm enable network/dns/server:default
+sudo svcadm refresh network/dns/server:default
+sudo svcs | grep dns/server
